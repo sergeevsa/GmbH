@@ -19,6 +19,7 @@ public class DoubleStatisticImpl implements DoubleStatistic {
 
     /**
      * @param scale - a number of simbols after comma, {@link RoundingMode#HALF_UP}
+     * for calculating average
      */
     public DoubleStatisticImpl(int scale) {
         this.scale = scale;
@@ -27,7 +28,7 @@ public class DoubleStatisticImpl implements DoubleStatistic {
     @Override
     public synchronized void offer(double number) {
         if (isAnyElementsOffered()) {
-            sum = sum.add(BigDecimal.valueOf(number).setScale(scale));
+            sum = sum.add(BigDecimal.valueOf(number));
             smallest = Math.min(smallest, number);
             largest = Math.max(largest, number);
         } else {
@@ -50,7 +51,7 @@ public class DoubleStatisticImpl implements DoubleStatistic {
 
     @Override
     public synchronized Double getAverage() {
-        return isAnyElementsOffered() ? sum.divide(BigDecimal.valueOf(count, scale), scale, RoundingMode.HALF_UP).doubleValue() : null;
+        return isAnyElementsOffered() ? sum.divide(BigDecimal.valueOf(count), scale, RoundingMode.HALF_UP).doubleValue() : null;
     }
 
     private boolean isAnyElementsOffered() {
