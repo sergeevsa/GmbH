@@ -4,13 +4,13 @@ import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 import ru.numstatistic.DoubleStatistic;
 
-public class MinMaxAveServiceMatcher extends TypeSafeMatcher<DoubleStatistic> {
+public class DoubleStatisticMatcher extends TypeSafeMatcher<DoubleStatistic> {
 
     private double largest;
     private double smallest;
     private double average;
 
-    public MinMaxAveServiceMatcher(double largest, double smallest, double average) {
+    public DoubleStatisticMatcher(double largest, double smallest, double average) {
         this.largest = largest;
         this.smallest = smallest;
         this.average = average;

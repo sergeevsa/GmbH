@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * thread for offering numbers in multiple threads in {@link DoubleStatisticImplMultithreadingTests}
  */
-public class MinMaxAvServiceThreadPusher implements Runnable {
+public class DoubleStatisticThreadPusher implements Runnable {
 
     /**
      * MAX_WAIT_TIME in seconds
@@ -22,7 +22,7 @@ public class MinMaxAvServiceThreadPusher implements Runnable {
     private DoubleStatistic minMaxAvService;
     private CountDownLatch countDownLatch;
 
-    public MinMaxAvServiceThreadPusher(List<Double> values, DoubleStatistic service, CountDownLatch countDownLatch) {
+    public DoubleStatisticThreadPusher(List<Double> values, DoubleStatistic service, CountDownLatch countDownLatch) {
         this.values = values;
         this.minMaxAvService = service;
         this.countDownLatch = countDownLatch;

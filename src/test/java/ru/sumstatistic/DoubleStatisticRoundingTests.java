@@ -6,7 +6,7 @@ import ru.numstatistic.DoubleStatisticImpl;
 /**
  * tests for {@link java.math.RoundingMode} and {@link DoubleStatisticImpl#scale}
  */
-public class MinMaxAveServceRoundingTests extends MinMaxAvServiceImplBaseTest {
+public class DoubleStatisticRoundingTests extends DoubleStatisticImplBaseTest {
 
     @Test
     public void testRoundingModeUp() {

@@ -5,7 +5,7 @@ import org.junit.Before;
 import ru.numstatistic.DoubleStatistic;
 import ru.numstatistic.DoubleStatisticImpl;
 
-public class MinMaxAvServiceImplBaseTest {
+public class DoubleStatisticImplBaseTest {
 
     protected DoubleStatistic minMaxAvService;
 
@@ -15,6 +15,6 @@ public class MinMaxAvServiceImplBaseTest {
     }
 
     protected void assertAll(double largest, double smallest, double average) {
-        MatcherAssert.assertThat(minMaxAvService, new MinMaxAveServiceMatcher(largest, smallest, average));
+        MatcherAssert.assertThat(minMaxAvService, new DoubleStatisticMatcher(largest, smallest, average));
     }
 }

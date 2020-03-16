@@ -9,7 +9,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * test for multithreading numbers offering
  */
-public class MinMaxAvServiceImplMultithreadingTests extends DoubleStatisticImplBaseTest {
+public class DoubleStatisticImplMultithreadingTests extends DoubleStatisticImplBaseTest {
 
     @Test
     public void testThreadSafe() throws InterruptedException {
@@ -20,7 +20,7 @@ public class MinMaxAvServiceImplMultithreadingTests extends DoubleStatisticImplB
             for (int j = 1; j < 1_001; j++) {
                 values.add((double) (i * 1_000 + j));
             }
-            Thread t = new Thread(new MinMaxAvServiceThreadPusher(values, minMaxAvService, countDownLatch));
+            Thread t = new Thread(new DoubleStatisticThreadPusher(values, minMaxAvService, countDownLatch));
             t.start();
             threads.add(t);
         }
