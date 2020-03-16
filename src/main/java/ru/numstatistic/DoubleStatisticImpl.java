@@ -9,7 +9,7 @@ import java.math.RoundingMode;
  * return NULL instead of 0 when no one number was offered. Also this class saves the sum of all numbers
  * in {@link BigDecimal}, so there will be no overflow
  */
-public class MinMaxAvServiceImpl implements MinMaxAvService {
+public class MinMaxAvServiceImpl implements DoubleStatistic {
 
     private volatile BigDecimal sum;
     private volatile long count = 0;
@@ -35,7 +35,7 @@ public class MinMaxAvServiceImpl implements MinMaxAvService {
             smallest = number;
             largest = number;
         }
-        count++;
+        ++count;
     }
 
     @Override

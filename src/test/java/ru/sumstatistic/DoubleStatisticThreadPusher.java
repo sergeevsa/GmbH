@@ -1,13 +1,13 @@
 package ru.sumstatistic;
 
-import ru.numstatistic.MinMaxAvService;
+import ru.numstatistic.DoubleStatistic;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
- * thread for offering numbers in multiple threads in {@link MinMaxAvServiceImplMultithreadingTests}
+ * thread for offering numbers in multiple threads in {@link DoubleStatisticImplMultithreadingTests}
  */
 public class MinMaxAvServiceThreadPusher implements Runnable {
 
@@ -19,10 +19,10 @@ public class MinMaxAvServiceThreadPusher implements Runnable {
      * values which will be offered from current thread
      */
     private List<Double> values;
-    private MinMaxAvService minMaxAvService;
+    private DoubleStatistic minMaxAvService;
     private CountDownLatch countDownLatch;
 
-    public MinMaxAvServiceThreadPusher(List<Double> values, MinMaxAvService service, CountDownLatch countDownLatch) {
+    public MinMaxAvServiceThreadPusher(List<Double> values, DoubleStatistic service, CountDownLatch countDownLatch) {
         this.values = values;
         this.minMaxAvService = service;
         this.countDownLatch = countDownLatch;

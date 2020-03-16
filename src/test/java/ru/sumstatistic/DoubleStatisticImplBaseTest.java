@@ -2,16 +2,16 @@ package ru.sumstatistic;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.Before;
-import ru.numstatistic.MinMaxAvService;
-import ru.numstatistic.MinMaxAvServiceImpl;
+import ru.numstatistic.DoubleStatistic;
+import ru.numstatistic.DoubleStatisticImpl;
 
 public class MinMaxAvServiceImplBaseTest {
 
-    protected MinMaxAvService minMaxAvService;
+    protected DoubleStatistic minMaxAvService;
 
     @Before
     public void beforeMinMaxAvServiceImplBaseTest() {
-        minMaxAvService = new MinMaxAvServiceImpl(10);
+        minMaxAvService = new DoubleStatisticImpl(10);
     }
 
     protected void assertAll(double largest, double smallest, double average) {

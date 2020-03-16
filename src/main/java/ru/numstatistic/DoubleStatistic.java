@@ -4,7 +4,7 @@ package ru.numstatistic;
  * A interface for collecting statistics such as min, max and average.
  */
 
-public interface MinMaxAvService {
+public interface NumberStatistic {
 
     /**
      * add new num

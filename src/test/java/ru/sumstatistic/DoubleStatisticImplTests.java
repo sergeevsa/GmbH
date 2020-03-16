@@ -3,7 +3,7 @@ package ru.sumstatistic;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class MinMaxAvServiceImplTests extends MinMaxAvServiceImplBaseTest {
+public class MinMaxAvServiceImplTests extends DoubleStatisticImplBaseTest {
 
     @Test
     public void testNothingOffered() {

@@ -9,7 +9,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * test for multithreading numbers offering
  */
-public class MinMaxAvServiceImplMultithreadingTests extends MinMaxAvServiceImplBaseTest {
+public class MinMaxAvServiceImplMultithreadingTests extends DoubleStatisticImplBaseTest {
 
     @Test
     public void testThreadSafe() throws InterruptedException {
