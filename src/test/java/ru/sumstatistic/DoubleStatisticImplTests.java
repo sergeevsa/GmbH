@@ -47,6 +47,6 @@ public class DoubleStatisticImplTests extends DoubleStatisticImplBaseTest {
             assertAll(0, 0, 0);
         }
         minMaxAvService.offer(Double.MAX_VALUE);
-        assertAll(Double.MAX_VALUE, 0, 2.9961552247705263E307);
+        assertAll(Double.MAX_VALUE, 0, Double.MAX_VALUE / 6);
     }
 }
