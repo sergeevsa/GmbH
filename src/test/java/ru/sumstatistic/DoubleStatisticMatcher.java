@@ -25,12 +25,15 @@ public class DoubleStatisticMatcher extends TypeSafeMatcher<DoubleStatistic> {
 
     @Override
     public void describeTo(Description description) {
-        description.appendText(String.format("largest: %s, smallest: %s, average: %s", largest, smallest, average));
+        description.appendText(getDescription(largest, smallest, average));
     }
 
     @Override
     protected void describeMismatchSafely(DoubleStatistic item, Description mismatchDescription) {
-        mismatchDescription.appendText(String.format("largest: %s, smallest: %s, average: %s", item.getLargest(),
-                item.getSmallest(), item.getAverage()));
+        mismatchDescription.appendText(getDescription(item.getLargest(), item.getSmallest(), item.getAverage()));
+    }
+
+    private String getDescription(double largest, double smallest, double average) {
+        return String.format("largest: %s, smallest: %s, average: %s", largest, smallest, average);
     }
 }
