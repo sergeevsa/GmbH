@@ -4,10 +4,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * A object for collecting statistics such as min, max and average.
- * This class do same things like {@link java.util.DoubleSummaryStatistics}, but it's threadsafe and
- * return NULL instead of 0 when no one number was offered. Also this class saves the sum of all numbers
- * in {@link BigDecimal}, so there will be no overflow
+ * A state object for collecting statistics such as min, max and average.
+ * Sum of all numbers saves in {@link BigDecimal}, so there will be no overflow
  */
 public class DoubleStatisticImpl implements DoubleStatistic {
 

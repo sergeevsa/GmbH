@@ -13,19 +13,19 @@ public interface DoubleStatistic {
     void offer(double number);
 
     /**
-     * return the smallest number it has encountered so far
+     * return the smallest number it has encountered so far or null if no one number was offered
      * @return
      */
     Double getSmallest();
 
     /**
-     * return the largest number it has encountered so far
+     * return the largest number it has encountered so far or null if no one number was offered
      * @return
      */
     Double getLargest();
 
     /**
-     * the average of all numbers it has encountered so far
+     * return the average of all numbers it has encountered so far or null if no one number was offered
      * @return
      */
     Double getAverage();
