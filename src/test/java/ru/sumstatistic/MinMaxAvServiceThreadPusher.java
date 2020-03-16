@@ -29,6 +29,6 @@ public class MinMaxAvServiceThreadPusher implements Runnable {
             e.printStackTrace();
             return;
         }
-        values.stream().forEach(value -> minMaxAvService.offer(value));
+        values.stream().forEach(minMaxAvService::offer);
     }
 }

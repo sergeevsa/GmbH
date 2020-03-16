@@ -3,3 +3,4 @@ out
 gradlew*
 .gradle
 build
+.idea
