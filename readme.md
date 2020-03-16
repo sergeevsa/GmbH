@@ -1,0 +1,1 @@
+Based on the fact that the task did not contain information about the count of numbers, their dimension, use in multithreading, etc. I decided to "find a middle ground".
