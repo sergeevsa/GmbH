@@ -5,6 +5,10 @@ import org.junit.Before;
 import ru.numstatistic.DoubleStatistic;
 import ru.numstatistic.DoubleStatisticImpl;
 
+/**
+ * base class for tests
+ * contains common code
+ */
 public class DoubleStatisticImplBaseTest {
 
     protected DoubleStatistic minMaxAvService;

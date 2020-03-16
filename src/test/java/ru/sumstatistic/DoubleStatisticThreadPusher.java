@@ -32,6 +32,7 @@ public class DoubleStatisticThreadPusher implements Runnable {
     public void run() {
         countDownLatch.countDown();
         try {
+            //all thrads must start offer numbers at same time
             countDownLatch.await(MAX_WAIT_TIME, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();

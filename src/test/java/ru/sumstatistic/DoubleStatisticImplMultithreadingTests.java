@@ -13,10 +13,14 @@ public class DoubleStatisticImplMultithreadingTests extends DoubleStatisticImplB
 
     @Test
     public void testThreadSafe() throws InterruptedException {
-        CountDownLatch countDownLatch = new CountDownLatch(10);
+        final int threadsCount = 10;
+        CountDownLatch countDownLatch = new CountDownLatch(threadsCount);
         List<Thread> threads = new LinkedList<>();
-        for (int i = 0; i < 10; i++) {
+        //run threadsCount threads. Every thread will offer numbers to DoubleStatisticImpl
+        for (int i = 0; i < threadsCount; i++) {
             List<Double> values = new LinkedList<>();
+            //this for circle generating numbers which thread will be send to offer
+            //every thread have unique numbers
             for (int j = 1; j < 1_001; j++) {
                 values.add((double) (i * 1_000 + j));
             }
@@ -24,6 +28,7 @@ public class DoubleStatisticImplMultithreadingTests extends DoubleStatisticImplB
             t.start();
             threads.add(t);
         }
+        //wait every thread ends
         for (Thread thread : threads) {
             thread.join();
         }
