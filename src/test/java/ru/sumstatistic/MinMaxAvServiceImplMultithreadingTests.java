@@ -6,6 +6,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * test for multithreading numbers offering
+ */
 public class MinMaxAvServiceImplMultithreadingTests extends MinMaxAvServiceImplBaseTest {
 
     @Test
@@ -14,8 +17,8 @@ public class MinMaxAvServiceImplMultithreadingTests extends MinMaxAvServiceImplB
         List<Thread> threads = new LinkedList<>();
         for (int i = 0; i < 10; i++) {
             List<Double> values = new LinkedList<>();
-            for (int j = 1; j < 11; j++) {
-                values.add((double) (i * 10 + j));
+            for (int j = 1; j < 1_001; j++) {
+                values.add((double) (i * 1_000 + j));
             }
             Thread t = new Thread(new MinMaxAvServiceThreadPusher(values, minMaxAvService, countDownLatch));
             t.start();
@@ -24,6 +27,6 @@ public class MinMaxAvServiceImplMultithreadingTests extends MinMaxAvServiceImplB
         for (Thread thread : threads) {
             thread.join();
         }
-        assertAll(100, 1, 50.5);
+        assertAll(10_000, 1, 5_000.5);
     }
 }

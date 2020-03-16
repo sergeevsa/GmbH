@@ -6,9 +6,18 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * thread for offering numbers in multiple threads in {@link MinMaxAvServiceImplMultithreadingTests}
+ */
 public class MinMaxAvServiceThreadPusher implements Runnable {
 
+    /**
+     * MAX_WAIT_TIME in seconds
+     */
     private static final long MAX_WAIT_TIME = 5;
+    /**
+     * values which will be offered from current thread
+     */
     private List<Double> values;
     private MinMaxAvService minMaxAvService;
     private CountDownLatch countDownLatch;

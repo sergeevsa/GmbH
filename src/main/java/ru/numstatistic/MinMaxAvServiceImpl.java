@@ -3,14 +3,23 @@ package ru.numstatistic;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * A object for collecting statistics such as min, max and average.
+ * This class do same things like {@link java.util.DoubleSummaryStatistics}, but it's threadsafe and
+ * return NULL instead of 0 when no one number was offered. Also this class saves the sum of all numbers
+ * in {@link BigDecimal}, so there will be no overflow
+ */
 public class MinMaxAvServiceImpl implements MinMaxAvService {
 
-    private BigDecimal sum;
-    private BigDecimal count;
-    private Double smallest;
-    private Double largest;
-    private int scale;
+    private volatile BigDecimal sum;
+    private volatile long count = 0;
+    private volatile Double smallest;
+    private volatile Double largest;
+    private final int scale;
 
+    /**
+     * @param scale - a number of simbols after comma, {@link RoundingMode#HALF_UP}
+     */
     public MinMaxAvServiceImpl(int scale) {
         this.scale = scale;
     }
@@ -21,13 +30,12 @@ public class MinMaxAvServiceImpl implements MinMaxAvService {
             sum = sum.add(BigDecimal.valueOf(number));
             smallest = Math.min(smallest, number);
             largest = Math.max(largest, number);
-            count = count.add(BigDecimal.ONE);
         } else {
             sum = BigDecimal.valueOf(number);
             smallest = number;
             largest = number;
-            count = BigDecimal.ONE;
         }
+        count++;
     }
 
     @Override
@@ -42,10 +50,10 @@ public class MinMaxAvServiceImpl implements MinMaxAvService {
 
     @Override
     public synchronized Double getAverage() {
-        return isAnyElementsOffered() ? sum.divide(count, scale, RoundingMode.HALF_UP).doubleValue() : null;
+        return isAnyElementsOffered() ? sum.divide(BigDecimal.valueOf(count), scale, RoundingMode.HALF_UP).doubleValue() : null;
     }
 
     private boolean isAnyElementsOffered() {
-        return count != null;
+        return count != 0;
     }
 }

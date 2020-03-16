@@ -3,6 +3,9 @@ package ru.sumstatistic;
 import org.junit.Test;
 import ru.numstatistic.MinMaxAvServiceImpl;
 
+/**
+ * tests for {@link java.math.RoundingMode} and {@link MinMaxAvServiceImpl#scale}
+ */
 public class MinMaxAveServceRoundingTests extends MinMaxAvServiceImplBaseTest {
 
     @Test
